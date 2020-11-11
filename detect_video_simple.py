@@ -54,7 +54,7 @@ def main(video_path):
                      valid_detections.numpy()]
 
         detected_nums = pred_bbox[3][0]
-        #result = utils.draw_bbox(img, pred_bbox)
+        result = utils.draw_bbox(img, pred_bbox)
 
         class_name = utils.read_class_names(cfg.YOLO.CLASSES)
 
@@ -71,9 +71,9 @@ def main(video_path):
                 ret_dict[class_name[class_ind]] = set()
             ret_dict[class_name[class_ind]].add(frame)
 
-        #result = cv2.cvtColor(np.array(result), cv2.COLOR_RGB2BGR)
+        result = cv2.cvtColor(np.array(result), cv2.COLOR_RGB2BGR)
 
-        #cv2.imshow('result', result)
+        cv2.imshow('result', result)
         if cv2.waitKey(1) == ord('q'):
             break
 
